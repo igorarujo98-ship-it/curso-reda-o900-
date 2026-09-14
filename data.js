@@ -45,7 +45,7 @@ window.CURSO = {
       avista: "124,99",
       linkParcelado: "https://mpago.li/2svJUT5",
       pixCopiaECola: "00020126580014BR.GOV.BCB.PIX013600004ae1-320e-4fa8-9464-a7954639f3a15204000053039865406124.995802BR5920Igor Araujo da Rocha6009SAO PAULO62140510ciG3SVCMNi6304A0DA",
-      pixQr: "arquivos/pix-12499.jpg"
+      pixQr: "pix-12499.jpg"
     },
     {
       id: "super",
@@ -62,7 +62,7 @@ window.CURSO = {
       avista: "180,00",
       linkParcelado: "https://mpago.li/1bTigpL",
       pixCopiaECola: "00020126580014BR.GOV.BCB.PIX013600004ae1-320e-4fa8-9464-a7954639f3a15204000053039865406180.005802BR5920Igor Araujo da Rocha6009SAO PAULO62140510OksbsWmPUB6304A1A4",
-      pixQr: "arquivos/pix-180.jpeg"
+      pixQr: "pix-180.jpeg"
     }
   ],
 
