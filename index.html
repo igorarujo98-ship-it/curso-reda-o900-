@@ -93,7 +93,28 @@ a{text-decoration:none;color:inherit}
 .terms-check{display:flex;gap:12px;align-items:flex-start;background:rgba(19,184,166,.06);border:1px solid rgba(19,184,166,.2);border-radius:12px;padding:16px;font-size:14px;color:#f6f9ff;line-height:1.5;cursor:pointer;margin-bottom:18px}
 .terms-check input{width:20px;height:20px;margin-top:1px;accent-color:#13b8a6}
 .terms-check span{display:block}
-#termsAccept:disabled{opacity:.45;cursor:not-allowed}</style>
+#termsAccept:disabled{opacity:.45;cursor:not-allowed}
+/* ===== CRESCER AO PASSAR O MOUSE ===== */
+.aula-card{transition:transform .25s ease,box-shadow .25s ease}
+.aula-card:hover{transform:scale(1.05);box-shadow:0 14px 44px rgba(19,184,166,.35)}
+.plan-card{transition:transform .25s ease,box-shadow .25s ease}
+.plan-card:hover{transform:scale(1.05);box-shadow:0 14px 44px rgba(19,184,166,.35)}
+.plan-card.destaque:hover{transform:scale(1.09);box-shadow:0 0 54px rgba(231,207,156,.5)}
+.tema-case{transition:transform .25s ease,box-shadow .25s ease}
+.tema-case:hover{transform:scale(1.05);box-shadow:0 14px 40px rgba(231,207,156,.25)}
+.info-card{transition:transform .25s ease,box-shadow .25s ease}
+.info-card:hover{transform:scale(1.04);box-shadow:0 12px 36px rgba(19,184,166,.25)}
+.comp-card{transition:transform .25s ease,box-shadow .25s ease}
+.comp-card:hover{transform:scale(1.04);box-shadow:0 12px 36px rgba(231,207,156,.22)}
+.step{transition:transform .2s ease,background .2s ease}
+.step:hover{transform:translateX(6px);background:rgba(19,184,166,.05)}
+.card,.plan-btn,.hero-chip{transition:transform .22s ease}
+.hero-chip:hover{transform:translateY(-4px)}
+.plan-btn:hover{transform:scale(1.05)}
+.qr-img{transition:transform .3s ease}
+.qr-img:hover{transform:scale(1.35)}
+a{transition:color .2s ease,opacity .2s ease}
+a:hover{opacity:.85}</style>
 </head>
 <body>
 

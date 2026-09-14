@@ -6,12 +6,11 @@
    1. PLANOS ................. seção "planos"
       - "linkParcelado": link do Mercado Pago para parcelamento
       - "pixCopiaECola": código Pix copia e cola
-      - "pixQr": caminho da imagem do QR code (coloque na pasta arquivos/)
+      - "pixQr": caminho da imagem do QR code (ex: "pix-12499.jpg" — sem pasta, porque o GitHub achata as pastas)
 
    2. CPFs DOS ALUNOS ........ seção "cpfs"
       Após cada pagamento confirmado, adicione o CPF do aluno aqui.
-      Exemplo:  cpfs: [ "61486461379", "98765432100" ]
-      cpfs: [ "61486461379", "98765432100" ]
+      Exemplo:  cpfs: [ "12345678900", "98765432100" ]
 
    3. AULAS .................. seção "aulas"
       - "youtube": link do vídeo (reproduzido DENTRO da plataforma)
