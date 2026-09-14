@@ -11,6 +11,7 @@
    2. CPFs DOS ALUNOS ........ seção "cpfs"
       Após cada pagamento confirmado, adicione o CPF do aluno aqui.
       Exemplo:  cpfs: [ "61486461379", "98765432100" ]
+      cpfs: [ "61486461379", "98765432100" ]
 
    3. AULAS .................. seção "aulas"
       - "youtube": link do vídeo (reproduzido DENTRO da plataforma)
