@@ -1,0 +1,13 @@
+PASTA DE ARQUIVOS DOS ALUNOS
+=============================
+
+Coloque aqui os PDFs que aparecerão na plataforma.
+
+- Aulas:  arquivos/aula1.pdf  ... arquivos/aula5.pdf
+- Temas:  arquivos/tema1.pdf  ... arquivos/tema10.pdf
+
+Depois de colocar o arquivo nesta pasta, escreva o caminho no arquivo data.js:
+
+    "pdf": "arquivos/aula1.pdf"
+
+e publique de novo no Vercel.

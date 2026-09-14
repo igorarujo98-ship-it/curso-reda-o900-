@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redação ENEM · Curso Nota Máxima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#1a1e24;color:#d3d9f0;min-height:100vh}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,30,36,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;height:64px;padding:0 32px}
+.nav-brand{font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:#13b8a6;margin-right:40px;white-space:nowrap}
+.nav-tabs{display:flex;gap:4px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;flex:1}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:#99a2be;background:none;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:all .25s}
+.nav-tab:hover{color:#d3d9f0;background:rgba(255,255,255,.05)}
+.nav-tab.active{color:#13b8a6;background:rgba(19,184,166,.1)}
+.hamburger{display:none;background:none;border:none;color:#d3d9f0;font-size:24px;cursor:pointer;padding:8px}
+@media(max-width:900px){.nav{padding:0 16px}.nav-brand{font-size:17px;margin-right:16px}.hamburger{display:block}.nav-tabs{position:fixed;top:64px;left:0;right:0;background:rgba(26,30,36,.98);backdrop-filter:blur(16px);flex-direction:column;padding:12px 16px;gap:4px;border-bottom:1px solid rgba(255,255,255,.06);display:none}.nav-tabs.open{display:flex}.nav-tab{padding:12px 16px;font-size:15px;text-align:left}}
+.section{display:none;padding:88px 32px 60px;max-width:1200px;margin:0 auto;animation:fadeUp .4s ease}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.view{display:none}.view.active{display:block}
+.hero{text-align:center;padding:60px 0 40px}
+.hero-badge{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;color:#e7cf9c;background:rgba(231,207,156,.1);border:1px solid rgba(231,207,156,.25);border-radius:30px;padding:8px 24px;margin-bottom:28px}
+.hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);color:#f6f9ff;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:#13b8a6}
+.hero p{font-size:clamp(16px,2vw,20px);color:#d3d9f0;max-width:700px;margin:0 auto 36px;line-height:1.6}
+.hero-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-chip{font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:#13b8a6;background:rgba(19,184,166,.1);border:1px solid rgba(19,184,166,.25);border-radius:10px;padding:8px 16px}
+.aulao-wrapper{margin:40px auto;max-width:600px;text-align:center}
+.aulao-wrapper img{width:100%;border-radius:20px}
+.aulao-wrapper .caption{margin-top:12px;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:#99a2be;letter-spacing:1px}
+.sec-header{text-align:center;margin-bottom:40px}
+.sec-header .pill{display:inline-block;font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:3px;color:#13b8a6;background:rgba(19,184,166,.1);border:1px solid rgba(19,184,166,.25);border-radius:30px;padding:8px 20px;margin-bottom:16px}
+.sec-header h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(28px,4vw,42px);color:#f6f9ff;margin-bottom:12px}
+.sec-header p{font-size:17px;color:#b0b8cf;max-width:700px;margin:0 auto;line-height:1.6}
+.summary{padding:32px 0 8px}
+.summary-text{background:#262b32;border-left:4px solid #13b8a6;border-radius:14px;padding:28px 32px;margin:12px 0 0}
+.summary-text p{font-size:16px;line-height:1.7;color:#d3d9f0;margin-bottom:14px}.summary-text p:last-child{margin-bottom:0}.summary-text p strong{color:#f6f9ff}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:32px 0}
+.info-card{background:#262b32;border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,.04);transition:transform .2s,border-color .2s}
+.info-card:hover{transform:translateY(-4px);border-color:rgba(19,184,166,.2)}
+.info-card .ic-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:28px;margin-bottom:8px}
+.info-card .ic-num.teal{color:#13b8a6}.info-card .ic-num.gold{color:#e7cf9c}.info-card .ic-num.lime{color:#cce64a}.info-card .ic-num.pink{color:#fa7085}.info-card .ic-num.purple{color:#a78bfa}
+.info-card h3{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#f6f9ff;margin-bottom:8px}
+.info-card p{font-size:15px;line-height:1.6;color:#b0b8cf}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0}
+.stat-box{background:#262b32;border-radius:16px;padding:24px;text-align:center;border-top:4px solid #13b8a6}
+.stat-box.s2{border-top-color:#e7cf9c}.stat-box.s3{border-top-color:#cce64a}.stat-box.s4{border-top-color:#fa7085}.stat-box.s5{border-top-color:#a78bfa}
+.stat-box .big{font-family:'Poppins',sans-serif;font-weight:900;font-size:48px;color:#f6f9ff}
+.stat-box .label{font-size:14px;color:#99a2be;margin-top:4px}
+.note-box{background:#262b32;border-left:4px solid #e7cf9c;border-radius:14px;padding:20px 24px;margin:24px 0}
+.note-box .nb-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:#e7cf9c;margin-bottom:6px}
+.note-box p{font-size:15px;line-height:1.55;color:#d3d9f0}
+.quote-box{background:#262b32;border-left:4px solid #a78bfa;border-radius:14px;padding:24px 28px;margin:24px 0}
+.quote-box .qb-label{font-family:'Poppins',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;color:#a78bfa;text-transform:uppercase;margin-bottom:8px}
+.quote-box .qb-text{font-size:17px;font-style:italic;color:#f6f9ff;line-height:1.6}
+.imp-highlight{background:linear-gradient(135deg,rgba(19,184,166,.08),rgba(19,184,166,.02));border:1px solid rgba(19,184,166,.15);border-radius:20px;padding:40px;margin:32px 0;text-align:center}
+.imp-highlight h3{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(24px,3vw,36px);color:#f6f9ff;margin-bottom:16px}
+.imp-highlight p{font-size:17px;color:#d3d9f0;line-height:1.6;max-width:700px;margin:0 auto}
+.donut-area{display:flex;align-items:center;gap:40px;margin:32px 0;flex-wrap:wrap;justify-content:center}
+.donut{width:220px;height:220px;border-radius:50%;position:relative;background:conic-gradient(#13b8a6 0 20%,#3a4048 20% 100%);flex-shrink:0}
+.donut-inner{position:absolute;inset:44px;border-radius:50%;background:#262b32;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-inner .d-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:42px;color:#f6f9ff;line-height:1}
+.donut-inner .d-label{font-size:14px;color:#d3d9f0;margin-top:4px}
+.donut-cards{display:flex;flex-direction:column;gap:12px;flex:1;min-width:280px}
+.donut-cards .dc{background:#262b32;border-radius:12px;padding:16px 20px;border-left:3px solid #13b8a6}
+.donut-cards .dc h4{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:#f6f9ff;margin-bottom:4px}
+.donut-cards .dc p{font-size:14px;color:#b0b8cf;line-height:1.5}
+.slide-content{background:#21252d;border-radius:20px;padding:36px;margin:24px 0;border:1px solid rgba(255,255,255,.04)}
+.slide-content .sc-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;color:#13b8a6;margin-bottom:8px}
+.slide-content h3{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#f6f9ff;margin-bottom:16px;line-height:1.2}
+.slide-content .steps{display:flex;flex-direction:column;gap:12px}
+.slide-content .step{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;background:rgba(255,255,255,.03);border-radius:10px}
+.slide-content .step .s-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;color:#13b8a6;min-width:28px}
+.slide-content .step .s-body{font-size:15px;line-height:1.5;color:#d3d9f0}
+.slide-content .step .s-body strong{color:#f6f9ff;font-weight:600}
+.flow-row{display:flex;gap:12px;align-items:stretch;margin:24px 0;flex-wrap:wrap}
+.flow-box{flex:1;min-width:140px;background:#262b32;border-radius:14px;padding:20px 16px;text-align:center;border-top:4px solid #13b8a6}
+.flow-box.f2{border-top-color:#e7cf9c}.flow-box.f3{border-top-color:#cce64a}.flow-box.f4{border-top-color:#fa7085}
+.flow-box .fn{font-family:'Poppins',sans-serif;font-weight:800;font-size:13px;color:#99a2be;letter-spacing:1px}
+.flow-box .ft{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:#f6f9ff;margin-top:6px}
+.flow-box p{font-size:13px;color:#b0b8cf;margin-top:6px;line-height:1.4}
+.flow-arrow{align-self:center;font-size:24px;color:#99a2be;flex:0 0 auto}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}
+.comp-card{background:#262b32;border-radius:14px;padding:24px;border-top:5px solid #13b8a6;position:relative}
+.comp-card.cc2{border-top-color:#e7cf9c}.comp-card.cc3{border-top-color:#cce64a}.comp-card.cc4{border-top-color:#fa7085}.comp-card.cc5{border-top-color:#a78bfa}
+.comp-card .cc-badge{position:absolute;top:16px;right:16px;font-family:'Poppins',sans-serif;font-weight:600;font-size:12px;color:#d3d9f0;background:rgba(255,255,255,.06);padding:5px 10px;border-radius:8px}
+.comp-card .cc-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:40px;line-height:1;margin-bottom:8px}
+.comp-card .cc-num.teal{color:#13b8a6}.comp-card .cc-num.gold{color:#e7cf9c}.comp-card .cc-num.lime{color:#cce64a}.comp-card .cc-num.pink{color:#fa7085}.comp-card .cc-num.purple{color:#a78bfa}
+.comp-card h4{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:#f6f9ff;margin-bottom:6px}
+.comp-card p{font-size:14px;color:#b0b8cf;line-height:1.5}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.chip{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;color:#d3d9f0;background:rgba(255,255,255,.06);border-radius:8px;padding:6px 14px}
+.aula-nav{display:flex;gap:12px;margin:40px 0 20px;flex-wrap:wrap}
+.aula-btn{font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:12px;border:none;cursor:pointer;transition:all .25s}
+.aula-btn.primary{background:#13b8a6;color:#fff}.aula-btn.primary:hover{background:#0fa08f}
+.aula-btn.secondary{background:rgba(255,255,255,.06);color:#d3d9f0;border:1px solid rgba(255,255,255,.1)}.aula-btn.secondary:hover{background:rgba(255,255,255,.1)}
+.aulas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:32px 0}
+.site-footer{text-align:center;padding:40px 32px;border-top:1px solid rgba(255,255,255,.06);margin-top:60px}
+.site-footer p{font-size:14px;color:#99a2be}
+.site-footer a{color:#13b8a6;text-decoration:none}
+
+/* ===== HOVER PREVIEW CARDS (landing) ===== */
+.preview-card{background:#262b32;border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,.04);cursor:default;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.4,0,.2,1),border-color .3s,box-shadow .3s}
+.preview-card:hover{transform:translateY(-6px) scale(1.03);border-color:rgba(19,184,166,.35);box-shadow:0 12px 40px rgba(0,0,0,.3),0 0 0 1px rgba(19,184,166,.15)}
+.preview-card .pc-num{font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;color:#13b8a6;letter-spacing:1px;margin-bottom:8px}
+.preview-card h3{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#f6f9ff;margin-bottom:6px;transition:color .3s}
+.preview-card .pc-desc{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .35s ease,margin .35s;margin-top:0;font-size:14px;color:#b0b8cf;line-height:1.6}
+.preview-card:hover .pc-desc{max-height:200px;opacity:1;margin-top:10px}
+.preview-card::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #262b32;opacity:0;transition:opacity .3s;pointer-events:none}
+.preview-card:hover::after{opacity:1}
+.preview-card:hover h3{color:#13b8a6}
+
+/* ===== PLANOS DE PAGAMENTO (landing) ===== */
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:32px 0}
+.plan-card{background:#262b32;border-radius:20px;padding:32px;border:2px solid rgba(255,255,255,.06);position:relative;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer}
+.plan-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.plan-card.destaque{border-color:rgba(19,184,166,.4)}
+.plan-card.destaque:hover{border-color:#13b8a6}
+.plan-tag{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;color:#1a1e24;background:#13b8a6;border-radius:20px;padding:5px 14px;margin-bottom:16px;text-transform:uppercase}
+.plan-card h3{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#f6f9ff;margin-bottom:6px}
+.plan-card .plan-preco{font-family:'Poppins',sans-serif;font-weight:900;font-size:32px;color:#13b8a6;margin:12px 0 4px}
+.plan-card .plan-avista{font-size:14px;color:#99a2be;margin-bottom:16px}
+.plan-features{list-style:none;margin:16px 0 24px}
+.plan-features li{padding:8px 0;font-size:15px;color:#d3d9f0;display:flex;gap:10px;align-items:flex-start}
+.plan-features li::before{content:'✓';color:#13b8a6;font-weight:700;flex-shrink:0}
+.plan-btn{display:block;width:100%;text-align:center;background:#13b8a6;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;padding:14px;border:none;border-radius:12px;cursor:pointer;transition:background .25s}
+.plan-btn:hover{background:#0fa08f}
+.plan-card.destaque .plan-btn{background:linear-gradient(135deg,#13b8a6,#0fa08f)}
+
+/* ===== LOGIN ===== */
+.login-card{max-width:460px;margin:80px auto;text-align:center;background:#262b32;border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:44px 36px}
+.login-card h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#f6f9ff;margin:10px 0 8px}
+.login-card p{font-size:15px;color:#b0b8cf;margin-bottom:22px}
+.login-card input{width:100%;background:#1a1e24;border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#f6f9ff;font-size:16px;padding:14px 16px;margin-bottom:14px;text-align:center;letter-spacing:1px}
+.login-card input:focus{outline:none;border-color:#13b8a6}
+#loginMsg{margin-top:12px;font-size:15px;font-weight:600;color:#fa7085;min-height:22px}
+#loginMsg.ok{color:#13b8a6}
+.ghost-btn{margin-top:18px;background:none;border:none;color:#13b8a6;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;cursor:pointer}
+.ghost-btn:hover{text-decoration:underline}
+.sair-btn{margin-left:12px;background:rgba(250,112,133,.12);border:1px solid rgba(250,112,133,.35);color:#fa7085;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;padding:9px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.sair-btn:hover{background:rgba(250,112,133,.2)}
+
+/* ===== MATERIAIS DA AULA ===== */
+.aula-materiais{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.video-slot{flex:1;min-width:280px;background:#262b32;border:1px dashed rgba(19,184,166,.4);border-radius:16px;padding:28px;text-align:center}
+.video-slot iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:10px}
+.video-btn{background:#13b8a6;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;padding:12px 24px;border:none;border-radius:12px;cursor:pointer}
+.video-btn:hover{background:#0fa08f}
+.pdf-btn{display:flex;align-items:center;justify-content:center;background:rgba(231,207,156,.1);border:1px solid rgba(231,207,156,.3);color:#e7cf9c;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:12px;text-decoration:none}
+.pdf-btn:hover{background:rgba(231,207,156,.18)}
+
+/* ===== TEMAS ===== */
+.temas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:32px 0}
+.tema-modal{position:fixed;inset:0;background:rgba(10,12,16,.82);display:none;align-items:center;justify-content:center;padding:24px;z-index:2000}
+.tema-modal.open{display:flex}
+.tema-modal-inner{background:#21252d;border:1px solid rgba(255,255,255,.08);border-radius:20px;max-width:720px;width:100%;max-height:82vh;overflow-y:auto;padding:32px}
+.tm-close{float:right;background:none;border:none;color:#99a2be;font-size:26px;cursor:pointer;line-height:1}
+.tm-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#f6f9ff;margin:4px 0 10px}
+.tm-resumo{font-size:15px;color:#b0b8cf;line-height:1.6}
+.tm-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;color:#e7cf9c;margin:20px 0 6px}
+.tm-modelo{white-space:pre-wrap;background:#262b32;border-left:4px solid #e7cf9c;border-radius:10px;padding:20px;margin-top:14px;color:#d3d9f0;line-height:1.7;font-size:15px}
+
+/* ===== MODAL DE PAGAMENTO ===== */
+.pay-overlay{position:fixed;inset:0;background:rgba(10,12,16,.88);display:none;align-items:center;justify-content:center;padding:24px;z-index:3000}
+.pay-overlay.open{display:flex}
+.pay-box{background:#21252d;border:1px solid rgba(255,255,255,.08);border-radius:24px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative}
+.pay-box .pay-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#99a2be;font-size:28px;cursor:pointer;line-height:1}
+.pay-box h2{font-family:'Poppins',sans-serif;font-weight:800;font-size:24px;color:#f6f9ff;margin-bottom:8px}
+.pay-box .pay-sub{font-size:15px;color:#b0b8cf;margin-bottom:24px}
+.pay-step{display:none}.pay-step.active{display:block}
+.pay-back{background:none;border:none;color:#13b8a6;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;cursor:pointer;margin-bottom:16px;padding:0}
+.pay-back:hover{text-decoration:underline}
+.pay-form input{width:100%;background:#1a1e24;border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#f6f9ff;font-size:16px;padding:14px 16px;margin-bottom:12px}
+.pay-form input:focus{outline:none;border-color:#13b8a6}
+.pay-form input::placeholder{color:#5a6080}
+.pay-continue{display:block;width:100%;margin-top:8px;background:#13b8a6;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;padding:14px;border:none;border-radius:12px;cursor:pointer;transition:background .25s}
+.pay-continue:hover{background:#0fa08f}
+.pay-methods{display:flex;flex-direction:column;gap:16px}
+.pay-method-btn{background:#262b32;border:2px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:left;cursor:pointer;transition:border-color .25s,background .25s}
+.pay-method-btn:hover{border-color:rgba(19,184,166,.3);background:#2c323a}
+.pay-method-btn h4{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:#f6f9ff;margin-bottom:4px}
+.pay-method-btn p{font-size:13px;color:#99a2be}
+.pay-method-btn.active{border-color:#13b8a6;background:rgba(19,184,166,.06)}
+.pay-detail{display:none;margin-top:20px;animation:fadeUp .3s ease}
+.pay-detail.active{display:block}
+.pay-detail .pd-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;color:#f6f9ff;margin-bottom:12px}
+.pay-detail .qr-img{max-width:280px;border-radius:12px;border:2px solid rgba(255,255,255,.06);margin:0 auto 16px;display:block}
+.pay-detail .pix-code{background:#1a1e24;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;font-size:12px;color:#b0b8cf;word-break:break-all;line-height:1.5;margin-bottom:12px;position:relative}
+.pay-detail .copy-btn{background:rgba(19,184,166,.15);border:1px solid rgba(19,184,166,.3);color:#13b8a6;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;cursor:pointer;transition:background .2s}
+.pay-detail .copy-btn:hover{background:rgba(19,184,166,.25)}
+.pay-detail .mp-link{display:inline-block;background:#009ee3;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;padding:14px 28px;border-radius:12px;text-decoration:none;transition:background .25s}
+.pay-detail .mp-link:hover{background:#0085cc}
+.pay-whatsapp{display:flex;align-items:center;gap:10px;margin-top:18px;padding:16px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:12px;font-size:14px;color:#d3d9f0}
+.pay-whatsapp strong{color:#25d366}
+.pay-confirm{margin-top:20px;padding:16px;background:rgba(19,184,166,.06);border:1px solid rgba(19,184,166,.15);border-radius:12px;font-size:14px;color:#b0b8cf;line-height:1.6}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav" style="display:none">
+  <div class="nav-brand">REDAÇÃO ENEM</div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">&#9776;</button>
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" onclick="showSection('inicio')">Início</button>
+    <button class="nav-tab" onclick="showSection('importancia')">Importância da Redação</button>
+    <button class="nav-tab" onclick="showSection('aula1')">Aula 1</button>
+    <button class="nav-tab" onclick="showSection('aula2')">Aula 2</button>
+    <button class="nav-tab" onclick="showSection('aula3')">Aula 3</button>
+    <button class="nav-tab" onclick="showSection('aula4')">Aula 4</button>
+    <button class="nav-tab" onclick="showSection('aula5')">Aula 5</button>
+    <button class="nav-tab" onclick="showSection('aula6')">Aula 6</button>
+    <button class="nav-tab" onclick="showSection('temas')">Temas</button>
+  </div>
+  <button class="sair-btn" onclick="sair()">Sair</button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- VIEW: APRESENTAÇÃO (PÚBLICA) -->
+<!-- ============================================================ -->
+<div class="view active" id="viewLanding">
+  <div class="hero">
+    <div class="hero-badge">CURSO NOTA MÁXIMA</div>
+    <h1>O segredo dos <span>900+</span></h1>
+    <p>Redação no ENEM não é sorte — é técnica. Método, estrutura e repertório para transformar o seu texto em nota de topo.</p>
+    <div class="hero-chips">
+      <div class="hero-chip">Conceitos básicos</div>
+      <div class="hero-chip">Estrutura</div>
+      <div class="hero-chip">Repertórios</div>
+      <div class="hero-chip">Argumentação</div>
+      <div class="hero-chip">Conclusão</div>
+      <div class="hero-chip">Escrita</div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="sec-header">
+      <div class="pill">POR QUE INVESTIR</div>
+      <h2>A importância da redação no ENEM</h2>
+    </div>
+    <div class="summary-text">
+      <p>A redação do ENEM é uma das partes mais estratégicas da prova, pois pode representar uma grande diferença na nota final e, consequentemente, na classificação para o curso desejado.</p>
+      <p>Para quem busca cursos concorridos, como Medicina, uma redação acima de <strong>900 pontos</strong> pode ser decisiva: enquanto muitos candidatos concentram seus esforços apenas nas questões objetivas, dominar a estrutura dissertativo-argumentativa permite aumentar a pontuação de forma mais previsível.</p>
+      <p>Além disso, a redação é uma prova em que o estudante consegue desenvolver uma estratégia de preparação: aprender a interpretar o tema, construir uma tese, utilizar repertórios produtivos, desenvolver argumentos e elaborar uma proposta de intervenção completa.</p>
+    </div>
+  </div>
+
+  <div class="aulao-wrapper">
+    <img src="foto-igor.png" alt="Professor Igor Araújo">
+    <div class="caption">PROFESSOR IGOR ARAÚJO DA ROCHA</div>
+  </div>
+
+  <div class="sec-header" style="margin-top:48px">
+    <div class="pill">O QUE VOCÊ VAI APRENDER</div>
+    <h2>As Aulas do Curso</h2>
+    <p>Passe o mouse sobre cada aula para ver o conteúdo.</p>
+  </div>
+  <div class="aulas-grid" id="landingAulas"></div>
+
+  <div class="sec-header" style="margin-top:48px">
+    <div class="pill">10 TEMAS NOTA MÁXIMA</div>
+    <h2>Temas de Redação</h2>
+    <p>Modelos prontos de redação nota máxima para cada tema. Passe o mouse para ver.</p>
+  </div>
+  <div class="aulas-grid" id="landingTemas"></div>
+
+  <div class="sec-header" style="margin-top:48px">
+    <div class="pill">ESCOLHA SEU PLANO</div>
+    <h2>Planos de Pagamento</h2>
+  </div>
+  <div class="plans-grid" id="plansGrid"></div>
+
+  <div style="text-align:center;margin-top:40px">
+    <button class="ghost-btn" onclick="showLogin()">Já sou aluno — entrar com meu CPF →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIEW: LOGIN -->
+<!-- ============================================================ -->
+<div class="view" id="viewLogin">
+  <div class="login-card">
+    <div class="hero-badge">ÁREA DO ALUNO</div>
+    <h2>Entre com seu CPF</h2>
+    <p>Digite o CPF que você utilizou no pagamento para acessar a plataforma.</p>
+    <input id="codeInput" type="text" placeholder="CPF: 000.000.000-00" maxlength="14">
+    <button class="pay-continue" onclick="tryAccess()">Liberar acesso</button>
+    <div id="loginMsg"></div>
+    <div><button class="ghost-btn" onclick="showLanding()">← Voltar à apresentação</button></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIEW: PLATAFORMA (ALUNOS LOGADOS) -->
+<!-- ============================================================ -->
+<div class="view" id="viewApp">
+
+<!-- INICIO -->
+<div class="section active" id="inicio">
+  <div class="hero">
+    <div class="hero-badge">CURSO NOTA MÁXIMA</div>
+    <h1>Bem-vindo ao curso!</h1>
+    <p>Redação no ENEM não é sorte — é técnica. Método, estrutura e repertório para transformar o seu texto em nota de topo.</p>
+  </div>
+  <div class="aulao-wrapper">
+    <img src="foto-igor.png" alt="Professor Igor Araújo">
+    <div class="caption">PROFESSOR IGOR ARAÚJO DA ROCHA</div>
+  </div>
+  <div class="sec-header" style="margin-top:48px">
+    <div class="pill">AS 6 AULAS</div>
+    <h2>Seu Curso</h2>
+    <p>Assista às aulas em ordem e baixe os materiais em PDF.</p>
+  </div>
+  <div class="aulas-grid" id="appAulas"></div>
+  <div class="sec-header" style="margin-top:48px">
+    <div class="pill">TEMAS NOTA MÁXIMA</div>
+    <h2>Temas de Redação</h2>
+  </div>
+  <div class="aulas-grid" id="appTemas"></div>
+</div>
+
+<!-- IMPORTANCIA -->
+<div class="section" id="importancia">
+  <div class="sec-header">
+    <div class="pill">POR QUE ESTUDAR?</div>
+    <h2>A Importância da Redação no ENEM</h2>
+    <p>Dominar a redação é o atalho mais poderoso para a aprovação — e quase ninguém explora isso.</p>
+  </div>
+  <div class="imp-highlight">
+    <h3>A redação vale 20% da nota final</h3>
+    <p>Mais do que qualquer área do conhecimento sozinha. É a única prova em que você pode revisar exatamente o que foi avaliado — e melhorar a cada edição.</p>
+  </div>
+  <div class="card-grid">
+    <div class="info-card"><div class="ic-num teal">1</div><h3>Maior peso individual da prova</h3><p>A redação vale <strong>20% da nota final</strong> do ENEM — mais do que qualquer área do conhecimento sozinha. Linguagens, Matemática, Humanas e Natureza somam 80%. A redação é 20% sozinha.</p></div>
+    <div class="info-card"><div class="ic-num gold">2</div><h3>Fator de desempate</h3><p>Em empate na média, a <strong>maior nota na redação</strong> é o critério decisivo para garantir a vaga. Uma redação forte pode ser o que separa você da aprovação.</p></div>
+    <div class="info-card"><div class="ic-num lime">3</div><h3>Única prova com espelho</h3><p>É a única prova em que você <strong>revisa exatamente o que foi avaliado</strong>. O INEP divulga o espelho de correção — você sabe exatamente onde errou e como melhorar.</p></div>
+    <div class="info-card"><div class="ic-num pink">4</div><h3>Previsível para quem treina</h3><p>Com método, o resultado é <strong>antecipável</strong>: a redação é a prova mais treinável de todo o exame.</p></div>
+  </div>
+  <div class="sec-header" style="margin-top:48px"><div class="pill">MATEMÁTICA SIMPLES</div><h2>Por que a redação muda tudo?</h2></div>
+  <div class="donut-area">
+    <div class="donut"><div class="donut-inner"><div class="d-num">20%</div><div class="d-label">da nota final</div></div></div>
+    <div class="donut-cards">
+      <div class="dc"><h4>5 áreas do conhecimento</h4><p>Linguagens, Matemática, Ciências Humanas, Ciências da Natureza e Redação.</p></div>
+      <div class="dc"><h4>100% / 5 = 20%</h4><p>A redação sozinha equivale a um quinto de todo o seu resultado final.</p></div>
+      <div class="dc"><h4>Nota que destrava a vaga</h4><p>Uma redação alta compensa notas menores nas áreas de exatas e deixa a média lá em cima.</p></div>
+    </div>
+  </div>
+  <div class="note-box" style="margin-top:32px">
+    <div class="nb-title">A conta básica</div>
+    <p>Imagine que você tira 700 em cada área do conhecimento (média 700). Sua média ficaria 700. Agora, se você tira 960 na redação e mantém 700 nas outras: <strong>(700+700+700+700+960)/5 = 752</strong>. Mais de 50 pontos só na redação!</p>
+  </div>
+  <div class="sec-header" style="margin-top:48px"><div class="pill">MENTALIDADE</div><h2>Redação é técnica, não dom!</h2></div>
+  <div class="card-grid">
+    <div class="info-card"><div class="ic-num teal">Técnica se aprende</div><h3>Método, não gênio</h3><p>Não precisa ter "dom" para escrever bem. Precisa de método, estrutura e repetição — como qualquer habilidade.</p></div>
+    <div class="info-card"><div class="ic-num gold">Treino com método</div><h3>Prática orientada</h3><p>Escrever sem estratégia não funciona. Treinar com o molde certo é o que separa quem tira 600 de quem tira 900+.</p></div>
+    <div class="info-card"><div class="ic-num lime">Correção constante</div><h3>Saber onde errar</h3><p>Corrigir é mais importante que escrever. Cada erro corrigido é uma nota que sobe na próxima tentativa.</p></div>
+  </div>
+  <div class="sec-header" style="margin-top:48px"><div class="pill">AS 5 COMPETÊNCIAS</div><h2>Como o INEP avalia a sua redação</h2><p>Cada competência vale até 200 pontos — juntas, elas formam sua nota de 0 a 1000.</p></div>
+  <div class="comp-grid">
+    <div class="comp-card"><span class="cc-badge">200 pts</span><div class="cc-num teal">1</div><h4>Dominar a norma culta</h4><p>Gramática e sintaxe corretas na prática da escrita.</p><div class="chips"><span class="chip">Concordância</span><span class="chip">Regência</span><span class="chip">Pontuação</span></div></div>
+    <div class="comp-card cc2"><span class="cc-badge">200 pts</span><div class="cc-num gold">2</div><h4>Compreender a proposta e aplicar repertório</h4><p>Entender o tema e usar conceitos de várias áreas.</p><div class="chips"><span class="chip">Repertório sociocultural</span><span class="chip">Visão multidisciplinar</span></div></div>
+    <div class="comp-card cc3"><span class="cc-badge">200 pts</span><div class="cc-num lime">3</div><h4>Argumentação</h4><p>Selecionar, organizar e defender ideias com clareza.</p><div class="chips"><span class="chip">Projeto de texto</span><span class="chip">Ponto de vista</span></div></div>
+    <div class="comp-card cc4"><span class="cc-badge">200 pts</span><div class="cc-num pink">4</div><h4>Coesão</h4><p>Conectivos e recursos que ligam e articulam as ideias.</p><div class="chips"><span class="chip">Conectivos</span><span class="chip">Referência</span></div></div>
+    <div class="comp-card cc5"><span class="cc-badge">200 pts</span><div class="cc-num purple">5</div><h4>Proposta de intervenção</h4><p>Solução detalhada que respeita os direitos humanos.</p><div class="chips"><span class="chip">Agente e ação</span><span class="chip">Meio e efeito</span></div></div>
+  </div>
+  <div class="stat-row" style="margin-top:32px">
+    <div class="stat-box"><div class="big">20%</div><div class="label">Peso da redação</div></div>
+    <div class="stat-box s2"><div class="big">5</div><div class="label">Competências avaliadas</div></div>
+    <div class="stat-box s3"><div class="big">1000</div><div class="label">Nota máxima</div></div>
+    <div class="stat-box s4"><div class="big">0</div><div class="label">Caso fuja do tema</div></div>
+    <div class="stat-box s5"><div class="big">30</div><div class="label">Linhas mínimas</div></div>
+  </div>
+</div>
+
+<!-- AULA 1 -->
+<div class="section" id="aula1">
+  <div class="sec-header"><div class="pill">AULA 1 DE 6</div><h2>Conceitos Básicos</h2><p>Entender o que a proposta pede e dominar os elementos centrais da redação dissertativo-argumentativa.</p></div>
+  <div class="slide-content"><div class="sc-label">O QUE VAMOS VER</div><h3>Roteiro da Aula</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Conceitos básicos</strong> — Entender o que a proposta pede e dominar os elementos centrais da redação dissertativo-argumentativa.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Estrutura</strong> — Organizar o texto em introdução, desenvolvimento e conclusão, com parágrafos que se encaixam.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Repertórios</strong> — Trazer referências da filosofia, história, cultura e atualidade que sustentam seus argumentos.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Argumentação / Conclusão</strong> — Defender um ponto de vista com clareza e fechar com uma proposta de intervenção concreta.</div></div>
+    <div class="step"><span class="s-num">5</span><div class="s-body"><strong>Escrita</strong> — Aplicar a norma culta, a coesão e a elegância do texto na prática.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">AS 5 COMPETÊNCIAS</div><h3>As 5 competências da redação</h3><div class="steps">
+    <div class="step"><span class="s-num" style="color:#13b8a6">C1</span><div class="s-body"><strong>Dominar a norma culta</strong> — Gramática e sintaxe corretas. Concordância, regência e pontuação.</div></div>
+    <div class="step"><span class="s-num" style="color:#e7cf9c">C2</span><div class="s-body"><strong>Compreender a proposta e aplicar repertório</strong> — Entender o tema e usar conceitos de várias áreas do conhecimento.</div></div>
+    <div class="step"><span class="s-num" style="color:#cce64a">C3</span><div class="s-body"><strong>Argumentação</strong> — Selecionar, organizar e defender ideias com um texto claro e bem estruturado.</div></div>
+    <div class="step"><span class="s-num" style="color:#fa7085">C4</span><div class="s-body"><strong>Coesão</strong> — Uso de conectivos e outros recursos linguísticos para articular as ideias.</div></div>
+    <div class="step"><span class="s-num" style="color:#a78bfa">C5</span><div class="s-body"><strong>Proposta de intervenção</strong> — Elaborar uma solução detalhada respeitando os direitos humanos.</div></div>
+  </div></div>
+  <div class="note-box"><div class="nb-title">Onde encontrar o tema</div><p>O tema está na <strong>proposta de redação</strong> e nos textos motivadores (coletânea). Leia a coletânea com lupa, identifique o problema central e argumente dentro desse recorte.</p></div>
+  <div class="aula-nav"><button class="aula-btn primary" onclick="showSection('aula2')">Ir para Aula 2 →</button></div>
+</div>
+
+<!-- AULA 2 -->
+<div class="section" id="aula2">
+  <div class="sec-header"><div class="pill">AULA 2 DE 6</div><h2>Estrutura Básica</h2><p>Quatro parágrafos, quatro funções: a espinha dorsal da dissertação nota máxima.</p></div>
+  <div class="flow-row">
+    <div class="flow-box"><div class="fn">01</div><div class="ft">Introdução</div><p>Abre o texto, apresenta tema e causadores.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box f2"><div class="fn">02</div><div class="ft">Desenvolvimento 1</div><p>Agente 1: citação, causa e consequência.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box f3"><div class="fn">03</div><div class="ft">Desenvolvimento 2</div><p>Agente 2: citação, causa e consequência.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box f4"><div class="fn">04</div><div class="ft">Conclusão</div><p>Medidas, aplicação e retorno a citação.</p></div>
+  </div>
+  <div class="note-box"><div class="nb-title">Regra de ouro</div><p>Introdução, Desenvolvimento 1, Desenvolvimento 2 e Conclusão: <strong>nenhum dos 4 parágrafos pode faltar</strong> na redação.</p></div>
+  <div class="slide-content"><div class="sc-label">INTRODUÇÃO</div><h3>As 4 frases da introdução</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Frase introdutória</strong> — Abre o texto com uma citação ou repertório relacionado ao tema.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Relacionar com o tema</strong> — Liga a frase ao problema, mostrando a conexão.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Apontar causadores</strong> — Os responsáveis que serão trabalhados nos desenvolvimentos.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Frase de finalização</strong> — Encerra mostrando que o texto vai solucionar o problema.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">DESENVOLVIMENTO</div><h3>A fórmula do parágrafo de desenvolvimento</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Agente contribui</strong> — A primeira frase (tópico frasal) aponta o causador do problema.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Citação</strong> — O repertório sociocultural ligado ao causador.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Causa e consequência</strong> — Por que o agente afeta o tema.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Evidência</strong> — A prova da correlação.</div></div>
+    <div class="step"><span class="s-num">5</span><div class="s-body"><strong>Opinião cidadã</strong> — Fechamento com posição social diante do problema.</div></div>
+  </div></div>
+  <div class="aula-nav"><button class="aula-btn secondary" onclick="showSection('aula1')">← Aula 1</button><button class="aula-btn primary" onclick="showSection('aula3')">Ir para Aula 3 →</button></div>
+</div>
+
+<!-- AULA 3 -->
+<div class="section" id="aula3">
+  <div class="sec-header"><div class="pill">AULA 3 DE 6</div><h2>A Introdução Nota 1000</h2><p>As quatro peças do parágrafo de abertura: frase introdutória, relação com o tema, causadores e finalização.</p></div>
+  <div class="slide-content"><div class="sc-label">PASSO 1</div><h3>Frase introdutória — Como abrir o texto</h3>
+    <div class="note-box" style="border-left-color:#fa7085;margin-top:0;margin-bottom:16px"><div class="nb-title" style="color:#fa7085">Regra de ouro</div><p><strong>Nunca começar a redação falando do tema!</strong></p></div>
+    <div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Começar com uma citação RELACIONADA ao tema</strong> — Lei, filme, pensador, série, livro, anime e outros repertórios legítimos.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Desenvolver bem a frase</strong> — Conte uma breve história: quem é o autor e o que a obra mostra sobre o problema.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Pode ser bom ou ruim!</strong> — O repertório pode ilustrar um cenário positivo ou negativo — o que vale é a conexão com o tema.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">OPÇÕES DE REPERTÓRIO</div><h3>O que pode ser usado para iniciar a redação?</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Versículo da Bíblia</strong> — Um texto sagrado contextualizado abre a frase com autoridade.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Lei</strong> — Marcos legais como o ECA ou o Estatuto do Idoso.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Série</strong> — Narrativas atuais que dialogam com o tema.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Filme</strong> — Obras do cinema que ilustram o problema.</div></div>
+    <div class="step"><span class="s-num">5</span><div class="s-body"><strong>Anime</strong> — Histórias contemporâneas com grande poder de identificação.</div></div>
+    <div class="step"><span class="s-num">6</span><div class="s-body"><strong>Livro</strong> — Clássicos e contemporâneos enriquecem a frase inicial.</div></div>
+    <div class="step"><span class="s-num">7</span><div class="s-body"><strong>Pensador</strong> — Filósofos e autores emprestam peso ao repertório.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">PASSO 2</div><h3>Relacionar com o tema — Ligação entre repertório e problema</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Conectivo de comparação ou contraposição</strong> — A frase começa ligando o repertório ao presente.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Definir o cenário</strong> — Deixar claro que o atual cenário nacional é igual ou diferente do repertório.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Apresentar o tema</strong> — Trazer o tema com "todas as palavras", sem rodeios.</div></div>
+  </div></div>
+  <div class="quote-box"><div class="qb-label">Modelo de relação com o tema</div><div class="qb-text">"Fora da ficção, observa-se a mesma realidade vivida pelos personagens, posto que o tema traz determinados prejuízos."</div></div>
+  <div class="slide-content"><div class="sc-label">PASSO 3</div><h3>Apontar os causadores</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Apontar 2 causadores</strong> — Um para o D1 e outro para o D2.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Conectivo de oposição</strong> — A frase dos causadores marca a transição do repertório para o problema.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Tomar por base os textos motivadores</strong> — Os causadores saem da coletânea.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">PASSO 4</div><h3>Frase de finalização</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Frase curta</strong> — Não estica: ela encerra o parágrafo com objetividade.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Função</strong> — Mostrar ao corretor que ainda vem muito texto pela frente e que tudo será solucionado.</div></div>
+  </div></div>
+  <div class="quote-box"><div class="qb-label">Modelo de finalização</div><div class="qb-text">"Dessa forma, hão de ser analisados tais pontos, a fim de saná-los de maneira eficaz"</div></div>
+  <div class="aula-nav"><button class="aula-btn secondary" onclick="showSection('aula2')">← Aula 2</button><button class="aula-btn primary" onclick="showSection('aula4')">Ir para Aula 4 →</button></div>
+</div>
+
+<!-- AULA 4 -->
+<div class="section" id="aula4">
+  <div class="sec-header"><div class="pill">AULA 4 DE 6</div><h2>O Desenvolvimento</h2><p>Do tópico frasal a opinião cidadã: o parágrafo que carrega seu repertório e sua argumentação.</p></div>
+  <div class="slide-content"><div class="sc-label">VISÃO GERAL</div><h3>A fórmula do desenvolvimento</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>O agente contribui</strong> — Dizer que o agente 1/2 contribui para o problema.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Citação</strong> — Repertório relacionado ao causador do problema.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Causa e consequência</strong> — Explicar o motivo da correlação.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Evidência</strong> — Consequência da consequência.</div></div>
+    <div class="step"><span class="s-num">5</span><div class="s-body"><strong>Opinião cidadã</strong> — Fechamento com posição social.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">TÓPICO FRASAL</div><h3>Regras do tópico frasal</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>D1 cuida do primeiro causador; D2, do segundo</strong> — Cada desenvolvimento trabalha um causador diferente.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Citar o tema com sinônimos</strong> — Retoma o problema sem repetir as palavras da introdução.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Jogos de palavras</strong> — Correlacionam o causador ao tema e mostram domínio do vocabulário.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Palavra inicial certa</strong> — 1º dev: "Diante do cenário exposto". 2º: "Ademais".</div></div>
+  </div></div>
+  <div class="quote-box"><div class="qb-label">Modelo de tópico frasal</div><div class="qb-text">"Diante do cenário exposto, é válido pontuar que o <strong>AGENTE</strong> corrobora com a persistência do <strong>PROBLEMA</strong>."</div></div>
+  <div class="slide-content"><div class="sc-label">REPERTÓRIO SOCIOCULTURAL</div><h3>O repertório dentro do desenvolvimento</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Repertório relacionado ao causador</strong> — Não é um tapa-buraco: a referência precisa conversar com o agente.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>O que ele prova</strong> — Mostra o que a referência diz sobre o problema e é válida a explicação.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Repertório no D2: opcional</strong> — Se for usar, que seja para diversificar e enriquecer — nunca para repetir o D1.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">CAUSA E CONSEQUÊNCIA</div><h3>Cadeia de argumentação</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Depende de você</strong> — Quanto maior a cadeia, maior a profundidade da análise.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Competência 3 em peso!</strong> — É aqui que a banca avalia o poder de argumentação.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Use os textos motivadores</strong> — Eles fornecem os elementos: causa, meio e efeito.</div></div>
+  </div></div>
+  <div class="flow-row" style="margin:20px 0">
+    <div class="flow-box" style="border-top-color:#21d3ed"><div class="ft" style="font-size:13px">Conectivo</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-top-color:#21d3ed"><div class="ft" style="font-size:13px">Validação do repertório</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-top-color:#21d3ed"><div class="ft" style="font-size:13px">Ação do agente</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-top-color:#21d3ed"><div class="ft" style="font-size:13px">Consequência geral</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-top-color:#21d3ed"><div class="ft" style="font-size:13px">Consequência pontual</div></div>
+  </div>
+  <div class="slide-content"><div class="sc-label">OPINIÃO CIDADÃ</div><h3>O fechamento do desenvolvimento</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Igual à da introdução</strong> — Mesma estrutura de encerramento consciente.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Tema de fundo</strong> — Mostra que o autor tem uma opinião responsável sobre o problema.</div></div>
+  </div></div>
+  <div class="quote-box"><div class="qb-label">Modelo de opinião cidadã</div><div class="qb-text">"Desse modo, faz-se necessária a reformulação dessa postura do agente de forma urgente."</div></div>
+  <div class="aula-nav"><button class="aula-btn secondary" onclick="showSection('aula3')">← Aula 3</button><button class="aula-btn primary" onclick="showSection('aula5')">Ir para Aula 5 →</button></div>
+</div>
+
+<!-- AULA 5 -->
+<div class="section" id="aula5">
+  <div class="sec-header"><div class="pill">AULA 5 DE 6</div><h2>A Conclusão</h2><p>Medidas claras, aplicação explicada e o retorno a citação da introdução: o fechamento que coroa o texto.</p></div>
+  <div class="slide-content"><div class="sc-label">COMO É COMPOSTA</div><h3>A fórmula da conclusão</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Dizer que medidas precisam ser tomadas</strong> — Reafirmar que o problema é solucionável e que algo precisa ser feito.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Explicar como a medida vai ser aplicada</strong> — Detalhar agente, meio, modo e finalidade da solução.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Frase de finalização</strong> — Retornar a citação da introdução, fechando o ciclo do texto.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">PARTE 1</div><h3>Reforçar a tomada de medidas</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Iniciar com um termo conclusivo</strong> — "Portanto", "Infere-se", "Desse modo" — o texto anuncia que vai concluir.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Frase direta ao ponto</strong> — Sem rodeios: a conclusão já nasce objetiva e assertiva.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Afirmar que algo deve ser feito</strong> — Um verbo de ação: "faz-se necessária", "cabe", "é preciso".</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Tema presente novamente</strong> — O leitor deve reconhecer o problema na hora.</div></div>
+  </div></div>
+  <div class="quote-box"><div class="qb-label">Modelo de abertura da conclusão</div><div class="qb-text">"Infere-se, portanto, a necessidade de criar mecanismos que <strong>contribuam/combatam</strong> o tema."</div></div>
+  <div class="slide-content"><div class="sc-label">PARTE 2</div><h3>O que será feito — A intervenção</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Medidas simples de serem feitas</strong> — Viáveis e coerentes com o texto — nada de utopias.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Respeitar os direitos humanos</strong> — Limite inegociável da proposta.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>5 elementos</strong> — Quem vai fazer, o que, como, por que — e detalhe um deles.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Todos os problemas resolvidos</strong> — Se necessário, faça duas frases para cobrir tudo.</div></div>
+  </div></div>
+  <div class="slide-content"><div class="sc-label">FÓRMULA DA INTERVENÇÃO</div><h3>A fórmula completa</h3>
+    <div class="quote-box" style="margin:0 0 16px"><div class="qb-label">Molde da proposta</div><div class="qb-text">"Para isso, cabe ao <strong>agente</strong>, fazer <strong>algo</strong>, por algum <strong>meio</strong>, com determinada <strong>finalidade</strong>."</div></div>
+    <div class="chips" style="justify-content:center"><span class="chip" style="border:1px solid rgba(19,184,166,.3);color:#13b8a6">Agente</span><span class="chip" style="border:1px solid rgba(231,207,156,.3);color:#e7cf9c">Ação</span><span class="chip" style="border:1px solid rgba(204,230,74,.3);color:#cce64a">Meio</span><span class="chip" style="border:1px solid rgba(250,112,133,.3);color:#fa7085">Finalidade</span></div>
+  </div>
+  <div class="slide-content"><div class="sc-label">PARTE 3</div><h3>A frase de finalização</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Retoma o repertório da introdução</strong> — A frase final cita o repertório sociocultural usado na abertura.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Elegância e memória</strong> — O corretor termina a leitura vendo que o texto foi planejado de ponta a ponta.</div></div>
+  </div></div>
+  <div class="note-box"><div class="nb-title">Ciclo completo</div><p>Introdução → Desenvolvimento → Conclusão: um círculo fechado — do mesmo repertório ao mesmo repertório. <strong>Texto amarrado de ponta a ponta.</strong></p></div>
+  <div class="aula-nav"><button class="aula-btn secondary" onclick="showSection('aula4')">← Aula 4</button><button class="aula-btn primary" onclick="showSection('aula6')">Ir para Aula 6 →</button></div>
+</div>
+
+<!-- AULA 6 -->
+<div class="section" id="aula6">
+  <div class="sec-header"><div class="pill">AULA 6 DE 6</div><h2>Fazendo Redação Junto Com Você</h2><p>Momento prático: o professor escreve uma redação ao vivo aplicando todo o método ensinado nas aulas anteriores.</p></div>
+  <div class="slide-content"><div class="sc-label">O QUE VAMOS FAZER</div><h3>A aula mais prática do curso</h3><div class="steps">
+    <div class="step"><span class="s-num">1</span><div class="s-body"><strong>Escolha do tema</strong> — O professor seleciona um tema real do ENEM para resolver junto com você.</div></div>
+    <div class="step"><span class="s-num">2</span><div class="s-body"><strong>Introdução ao vivo</strong> — Escrevemos juntos a frase introdutória, a relação com o tema e os causadores.</div></div>
+    <div class="step"><span class="s-num">3</span><div class="s-body"><strong>Desenvolvimento passo a passo</strong> — Tópico frasal, citação, causa, consequência e opinião cidadã.</div></div>
+    <div class="step"><span class="s-num">4</span><div class="s-body"><strong>Conclusão completa</strong> — Medidas, aplicação e frase de finalização com retorno ao repertório.</div></div>
+    <div class="step"><span class="s-num">5</span><div class="s-body"><strong>Revisão e dicas finais</strong> — O professor revisa o texto e dá dicas valiosas para os erros mais comuns.</div></div>
+  </div></div>
+  <div class="note-box"><div class="nb-title">Dica de ouro</div><p>Assista essa aula com uma folha e uma caneta em mãos. Tente escrever junto com o professor — é o melhor jeito de fixar o método na prática.</p></div>
+  <div class="aula-nav"><button class="aula-btn secondary" onclick="showSection('aula5')">← Aula 5</button><button class="aula-btn primary" onclick="showSection('temas')">Ir para Temas →</button></div>
+</div>
+
+<!-- TEMAS -->
+<div class="section" id="temas">
+  <div class="sec-header"><div class="pill">TEMAS NOTA MÁXIMA</div><h2>10 Temas de Redação</h2><p>Escolha um tema e veja o modelo de redação nota máxima pronto para estudar.</p></div>
+  <div class="temas-grid" id="temasGrid"></div>
+</div>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="pay-overlay" id="payOverlay">
+  <div class="pay-box">
+    <span class="pay-close" onclick="closePayment()">&times;</span>
+    <div class="pay-step active" id="payStep1">
+      <h2>Escolha seu plano</h2>
+      <p class="pay-sub">Selecione o plano que mais combina com você.</p>
+      <div class="plans-grid" id="payPlansGrid"></div>
+    </div>
+    <div class="pay-step" id="payStep2">
+      <button class="pay-back" onclick="payGoTo(1)">← Voltar aos planos</button>
+      <h2>Seus dados</h2>
+      <p class="pay-sub">Preencha seus dados para acessar a plataforma.</p>
+      <div class="pay-form">
+        <input id="payNome" type="text" placeholder="Nome completo">
+        <input id="payCpf" type="text" placeholder="CPF (será seu login)" maxlength="14">
+        <input id="payWhats" type="text" placeholder="WhatsApp (00) 00000-0000" maxlength="15">
+      </div>
+      <button class="pay-continue" onclick="payGoTo(3)">Continuar para pagamento</button>
+    </div>
+    <div class="pay-step" id="payStep3">
+      <button class="pay-back" onclick="payGoTo(2)">← Voltar aos dados</button>
+      <h2>Forma de pagamento</h2>
+      <p class="pay-sub" id="payPlanName"></p>
+      <div class="pay-methods">
+        <div class="pay-method-btn" onclick="showPayMethod('parcelado')"><h4>Parcelado no cartão</h4><p id="payParcelas"></p></div>
+        <div class="pay-method-btn" onclick="showPayMethod('pix')"><h4>Pix à vista</h4><p id="payAvista"></p></div>
+      </div>
+      <div class="pay-detail" id="payParcelado">
+        <div class="pd-title">Pague pelo Mercado Pago</div>
+        <a class="mp-link" id="payMpLink" href="#" target="_blank" rel="noopener">Pagar com Mercado Pago</a>
+      </div>
+      <div class="pay-detail" id="payPix">
+        <div class="pd-title">Escaneie o QR Code ou copie o Pix</div>
+        <img class="qr-img" id="payQrImg" src="" alt="QR Code Pix">
+        <div class="pd-title">Pix copia e cola</div>
+        <div class="pix-code" id="payPixCode"></div>
+        <button class="copy-btn" onclick="copyPix()">Copiar código Pix</button>
+      </div>
+      <div class="pay-whatsapp">
+        <div>Após o pagamento, envie o comprovante para: <strong id="payWhatsNumber"></strong></div>
+      </div>
+      <div class="pay-confirm">Seu acesso será liberado assim que o pagamento for confirmado pelo professor.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <p>Redação ENEM · Curso Nota Máxima · Professor <a href="#">Igor Araújo da Rocha</a></p>
+</div>
+
+<script>
+var CURSO = window.CURSO || {};
+var KEY = 'cursonota_cpf';
+var selectedPlan = null;
+
+function cpfs(){
+  return (CURSO.cpfs || []).map(function(c){ return String(c).replace(/\D/g,''); });
+}
+function justDigits(v){ return String(v||'').replace(/\D/g,''); }
+function isLogged(){
+  var stored = sessionStorage.getItem(KEY);
+  return stored && cpfs().indexOf(stored) !== -1;
+}
+
+function setState(name){
+  var map = {landing:'viewLanding', login:'viewLogin', app:'viewApp'};
+  ['viewLanding','viewLogin','viewApp'].forEach(function(id){
+    document.getElementById(id).classList.toggle('active', id === map[name]);
+  });
+  document.getElementById('mainNav').style.display = (name === 'app') ? 'flex' : 'none';
+}
+function showLanding(){ setState('landing'); window.scrollTo({top:0,behavior:'smooth'}); }
+function showLogin(){ setState('login'); window.scrollTo({top:0,behavior:'smooth'}); }
+function showApp(){
+  if(!isLogged()){ showLogin(); return; }
+  setState('app');
+  showSection('inicio');
+}
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  if(id === 'temas'){ renderTemasTab(); }
+  document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+  var tabs = document.querySelectorAll('.nav-tab');
+  var map = {inicio:0,importancia:1,aula1:2,aula2:3,aula3:4,aula4:5,aula5:6,aula6:7,temas:8};
+  if(map[id] !== undefined && tabs[map[id]]) tabs[map[id]].classList.add('active');
+  document.getElementById('navTabs').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleNav(){ document.getElementById('navTabs').classList.toggle('open'); }
+
+/* === LOGIN POR CPF === */
+function tryAccess(){
+  var inp = document.getElementById('codeInput');
+  var msg = document.getElementById('loginMsg');
+  var v = justDigits(inp.value);
+  if(!v || v.length < 8){ msg.textContent = 'Digite um CPF válido.'; msg.classList.remove('ok'); return; }
+  if(cpfs().indexOf(v) !== -1){
+    sessionStorage.setItem(KEY, v);
+    msg.textContent = 'Acesso liberado!';
+    msg.classList.add('ok');
+    showApp();
+  } else {
+    msg.textContent = 'CPF não encontrado. Após o pagamento, aguarde a confirmação do professor.';
+    msg.classList.remove('ok');
+  }
+}
+function sair(){ sessionStorage.removeItem(KEY); showLanding(); }
+
+/* === MÁSCARAS === */
+function maskCpf(inp){
+  var v = inp.value.replace(/\D/g,'').substring(0,11);
+  if(v.length > 9) inp.value = v.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+  else if(v.length > 6) inp.value = v.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+  else if(v.length > 3) inp.value = v.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+}
+function maskPhone(inp){
+  var v = inp.value.replace(/\D/g,'').substring(0,11);
+  if(v.length > 10) inp.value = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  else if(v.length > 6) inp.value = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+  else if(v.length > 2) inp.value = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+}
+
+/* === CARDS (landing) === */
+function previewCardHTML(label, title, desc){
+  return '<div class="preview-card"><div class="pc-num">' + label + '</div><h3>' + title + '</h3><div class="pc-desc">' + desc + '</div></div>';
+}
+function renderLandingAulas(){
+  var el = document.getElementById('landingAulas');
+  if(!el) return;
+  var h = '';
+  (CURSO.aulas || []).forEach(function(a, i){
+    h += previewCardHTML('AULA ' + (i+1), a.titulo, a.descricao);
+  });
+  el.innerHTML = h;
+}
+function renderLandingTemas(){
+  var el = document.getElementById('landingTemas');
+  if(!el) return;
+  var h = '';
+  (CURSO.temas || []).forEach(function(t, i){
+    h += previewCardHTML('TEMA ' + (i+1), t.titulo, t.resumo);
+  });
+  el.innerHTML = h;
+}
+
+/* === PLANOS (landing + modal) === */
+function planCardHTML(p, clickable){
+  var destaque = p.destaque ? ' destaque' : '';
+  var onclick = clickable ? ("selectPlan('" + p.id + "')") : '';
+  var h = '<div class="plan-card' + destaque + '"' + (onclick ? ' onclick="' + onclick + '"' : '') + '>';
+  if(p.tag) h += '<div class="plan-tag">' + p.tag + '</div>';
+  h += '<h3>' + p.nome + '</h3>';
+  h += '<div class="plan-preco">' + p.parcelas + '</div>';
+  h += '<div class="plan-avista">ou R$ ' + p.avista + ' à vista no Pix</div>';
+  h += '<ul class="plan-features">';
+  (p.features || []).forEach(function(f){ h += '<li>' + f + '</li>'; });
+  h += '</ul>';
+  h += '<button class="plan-btn">Escolher plano</button>';
+  h += '</div>';
+  return h;
+}
+function renderPlans(){
+  var grids = ['plansGrid','payPlansGrid'];
+  grids.forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var h = '';
+    (CURSO.planos || []).forEach(function(p){
+      h += planCardHTML(p, id === 'plansGrid');
+    });
+    el.innerHTML = h;
+  });
+}
+
+/* === FLUXO DE PAGAMENTO === */
+function selectPlan(id){
+  selectedPlan = (CURSO.planos || []).filter(function(p){ return p.id === id; })[0];
+  if(!selectedPlan) return;
+  document.getElementById('payOverlay').classList.add('open');
+  payGoTo(2);
+}
+function closePayment(){
+  document.getElementById('payOverlay').classList.remove('open');
+  document.getElementById('payStep1').classList.remove('active');
+  document.getElementById('payStep2').classList.remove('active');
+  document.getElementById('payStep3').classList.remove('active');
+  document.getElementById('payStep1').classList.add('active');
+  ['payParcelado','payPix'].forEach(function(id){
+    document.getElementById(id).classList.remove('active');
+  });
+}
+function payGoTo(step){
+  document.querySelectorAll('.pay-step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('payStep' + step).classList.add('active');
+  if(step === 3 && selectedPlan){
+    document.getElementById('payPlanName').textContent = selectedPlan.nome + ' — ' + selectedPlan.parcelas + ' ou R$ ' + selectedPlan.avista + ' à vista';
+    document.getElementById('payParcelas').textContent = selectedPlan.parcelas + ' no cartão';
+    document.getElementById('payAvista').textContent = 'R$ ' + selectedPlan.avista + ' à vista via Pix';
+    document.getElementById('payMpLink').href = selectedPlan.linkParcelado;
+    document.getElementById('payQrImg').src = selectedPlan.pixQr;
+    document.getElementById('payPixCode').textContent = selectedPlan.pixCopiaECola;
+    document.getElementById('payWhatsNumber').textContent = CURSO.whatsapp || '';
+  }
+}
+function showPayMethod(method){
+  document.querySelectorAll('.pay-method-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('payParcelado').classList.remove('active');
+  document.getElementById('payPix').classList.remove('active');
+  if(method === 'parcelado'){
+    document.getElementById('payParcelado').classList.add('active');
+    event.currentTarget.classList.add('active');
+  } else {
+    document.getElementById('payPix').classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+}
+function copyPix(){
+  var code = document.getElementById('payPixCode').textContent;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(code).then(function(){
+      var btn = document.querySelector('.copy-btn');
+      btn.textContent = 'Copiado!';
+      setTimeout(function(){ btn.textContent = 'Copiar código Pix'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = code; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+    var btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copiado!';
+    setTimeout(function(){ btn.textContent = 'Copiar código Pix'; }, 2000);
+  }
+}
+
+/* === AULAS/TEMAS NA PLATAFORMA === */
+function findAula(id){ return (CURSO.aulas || []).filter(function(a){ return a.id === id; })[0]; }
+function youtubeEmbedUrl(url){
+  if(!url) return '';
+  var u = String(url).trim();
+  var m = u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
+  return m ? ('https://www.youtube-nocookie.com/embed/' + m[1]) : u;
+}
+function appCardHTML(label, title, desc, arrow, onclick){
+  return '<div class="aula-card" onclick="' + onclick + '"><div class="ac-num">' + label + '</div><h3>' + title + '</h3><p>' + desc + '</p><div class="ac-arrow">' + arrow + '</div></div>';
+}
+function renderAppAulas(){
+  var el = document.getElementById('appAulas');
+  if(!el) return;
+  var h = '';
+  (CURSO.aulas || []).forEach(function(a, i){
+    h += appCardHTML('AULA ' + (i+1), a.titulo, a.descricao, 'Ver aula →', "showSection('" + a.id + "')");
+  });
+  el.innerHTML = h;
+}
+function renderAppTemas(){
+  var el = document.getElementById('appTemas');
+  if(!el) return;
+  var h = '';
+  (CURSO.temas || []).forEach(function(t, i){
+    h += appCardHTML('TEMA ' + (i+1), t.titulo, t.resumo, 'Ver modelo →', "openTema('" + t.id + "')");
+  });
+  el.innerHTML = h;
+}
+function renderTemasTab(){
+  var el = document.getElementById('temasGrid');
+  if(!el) return;
+  var h = '';
+  (CURSO.temas || []).forEach(function(t, i){
+    h += appCardHTML('TEMA ' + (i+1), t.titulo, t.resumo, 'Ver modelo →', "openTema('" + t.id + "')");
+  });
+  el.innerHTML = h;
+}
+function openTema(id){
+  var t = (CURSO.temas || []).filter(function(x){ return x.id === id; })[0];
+  if(!t) return;
+  var inner = '<span class="tm-close" onclick="closeTema()">&times;</span><div class="tm-title">' + (t.titulo || '') + '</div>';
+  if(t.resumo) inner += '<p class="tm-resumo">' + t.resumo + '</p>';
+  if(t.modelo){
+    inner += '<div class="tm-label">MODELO NOTA MÁXIMA</div><div class="tm-modelo">' + t.modelo + '</div>';
+  } else {
+    inner += '<div class="tm-label">MODELO NOTA MÁXIMA</div><div class="tm-modelo">Este tema terá sua redação nota máxima disponível em breve.</div>';
+  }
+  if(t.pdf) inner += '<div style="margin-top:20px"><a class="pdf-btn" href="' + t.pdf + '" target="_blank" rel="noopener">Baixar PDF do modelo</a></div>';
+  var modal = document.getElementById('temaModal');
+  if(!modal){
+    modal = document.createElement('div');
+    modal.className = 'tema-modal';
+    modal.id = 'temaModal';
+    modal.innerHTML = '<div class="tema-modal-inner"></div>';
+    modal.addEventListener('click', function(e){ if(e.target === modal) closeTema(); });
+    document.body.appendChild(modal);
+  }
+  modal.querySelector('.tema-modal-inner').innerHTML = inner;
+  modal.classList.add('open');
+}
+function closeTema(){ var m = document.getElementById('temaModal'); if(m) m.classList.remove('open'); }
+
+function renderMateriais(){
+  (CURSO.aulas || []).forEach(function(a){
+    var sec = document.getElementById(a.id);
+    if(!sec) return;
+    var html = '';
+    if(a.youtube) html += '<div class="video-slot" id="slot-' + a.id + '"><button class="video-btn" onclick="playVideo(\'' + a.id + '\')">Assistir a aula aqui</button><div style="margin-top:10px;font-size:12px;color:#99a2be">O vídeo reproduz dentro da plataforma.</div></div>';
+    if(a.pdf) html += '<a class="pdf-btn" href="' + a.pdf + '" target="_blank" rel="noopener">Baixar PDF da aula</a>';
+    if(!html) return;
+    var box = document.createElement('div');
+    box.className = 'aula-materiais';
+    box.innerHTML = html;
+    var head = sec.querySelector('.sec-header');
+    if(head) head.insertAdjacentElement('afterend', box);
+    else sec.insertBefore(box, sec.firstChild);
+  });
+}
+function playVideo(id){
+  var a = findAula(id);
+  var slot = document.getElementById('slot-' + id);
+  if(!slot || !a) return;
+  slot.innerHTML = '<iframe src="' + youtubeEmbedUrl(a.youtube) + '" title="Aula" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe>';
+}
+
+/* === INICIALIZAÇÃO === */
+function init(){
+  renderLandingAulas();
+  renderLandingTemas();
+  renderPlans();
+  renderAppAulas();
+  renderAppTemas();
+  renderMateriais();
+
+  document.getElementById('codeInput').addEventListener('input', function(){ maskCpf(this); });
+  document.getElementById('payCpf').addEventListener('input', function(){ maskCpf(this); });
+  document.getElementById('payWhats').addEventListener('input', function(){ maskPhone(this); });
+
+  if(isLogged()){ showApp(); } else { showLanding(); }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.nav')) document.getElementById('navTabs').classList.remove('open');
+});
+</script>
+</body>
+</html>
