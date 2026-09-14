@@ -26,7 +26,7 @@ body{font-family:'Inter',sans-serif;background:#1a1e24;color:#d3d9f0;min-height:
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .view{display:none}.view.active{display:block}
 .hero{text-align:center;padding:60px 0 40px}
-.hero-badge{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;color:#e7cf9c;background:rgba(231,207,156,.1);border:1px solid rgba(231,207,156,.25);border-radius:30px;padding:8px 24px;margin-bottom:28px}
+.hero-badge{display:inline-block;font-family:'Poppins',sans-serif;font-weight:900;font-size:30px;letter-spacing:10px;color:#f0dcae;background:linear-gradient(135deg,rgba(231,207,156,.4),rgba(231,207,156,.14),rgba(19,184,166,.08));border:4px solid rgba(231,207,156,.85);border-radius:36px;padding:18px 54px;margin-bottom:34px;text-shadow:0 0 16px rgba(231,207,156,.9);box-shadow:0 0 36px rgba(231,207,156,.5),inset 0 0 30px rgba(231,207,156,.15);animation:heroGlow 1.7s ease-in-out infinite}@keyframes heroGlow{0%,100%{filter:brightness(1.15);transform:scale(1.02)}50%{filter:brightness(2.1);transform:scale(1)}
 .hero h1{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);color:#f6f9ff;line-height:1.1;margin-bottom:20px}
 .hero h1 span{color:#13b8a6}
 .hero p{font-size:clamp(16px,2vw,20px);color:#d3d9f0;max-width:700px;margin:0 auto 36px;line-height:1.6}
@@ -135,7 +135,7 @@ body{font-family:'Inter',sans-serif;background:#1a1e24;color:#d3d9f0;min-height:
 .plan-card.destaque .plan-btn{background:linear-gradient(135deg,#13b8a6,#0fa08f)}
 
 /* ===== DESTAQUE PROMOCIONAL ===== */
-.promo-banner{text-align:center;max-width:720px;margin:0 auto 8px;background:linear-gradient(135deg,rgba(231,207,156,.14),rgba(231,207,156,.03));border:2px solid rgba(231,207,156,.45);border-radius:14px;padding:18px 28px}
+@keyframes promoPulse2{0%,100%{box-shadow:0 0 30px rgba(231,207,156,.35)}40%{box-shadow:0 0 52px rgba(231,207,156,.85)}60%{box-shadow:0 0 46px rgba(231,207,156,.65)}   0%{}}\n.promo-banner{text-align:center;max-width:860px;margin:0 auto 58px;background:linear-gradient(135deg,rgba(231,207,156,.4),rgba(231,207,156,.08),rgba(231,207,156,.03));border:4px solid #e7cf9c;border-radius:20px;padding:28px 44px;box-shadow:0 0 52px rgba(231,207,156,.55);animation:promoPulse2 1.6s ease-in-out infinite;position:relative;font-size:clamp(24px,4vw,40px);font-family:'Poppins',sans-serif;font-weight:900;letter-spacing:日 1px;color:#f6dca6;text-shadow:0 0 24px rgba(231,207,156,.9);text-transform:uppercase}
 .promo-banner .pb-tag{font-family:'Poppins',sans-serif;font-weight:800;font-size:15px;letter-spacing:2px;color:#e7cf9c;margin-right:10px}
 .promo-banner span{font-size:14px;color:#d3d9f0}
 
